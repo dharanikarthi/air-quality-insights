@@ -192,7 +192,7 @@ function ConditionChip({
   label,
   value,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   value: string;
 }) {
@@ -261,7 +261,7 @@ function AqiGauge({ aqi, category }: { aqi: number; category: keyof typeof categ
           />
         ))}
         {/* Progress needle dot */}
-        <circle cx={dotX} cy={dotY} r="9" fill={`var(--color-${category === "severe" ? "severe" : category})`} />
+        <circle cx={dotX} cy={dotY} r="9" fill={`var(--color-${category})`} />
         <circle cx={dotX} cy={dotY} r="4" fill="var(--color-background)" />
       </svg>
       <div className="absolute inset-x-0 bottom-1 text-center">
@@ -371,10 +371,7 @@ function PollutantGrid({ city }: { city: CityAqi }) {
                 <span className="ml-1.5 text-xs font-normal text-muted-foreground">{p.unit}</span>
               </p>
               <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-secondary">
-                <div
-                  className={`h-full rounded-full ${meta.dimToken.replace("-dim", "")}`}
-                  style={{ width: `${Math.max(ratio * 100, 4)}%` }}
-                />
+                <div className={`h-full rounded-full ${meta.barToken}`} style={{ width: `${Math.max(ratio * 100, 4)}%` }} />
               </div>
               <p className="mt-2 text-xs text-muted-foreground">
                 {Math.round(ratio * 100)}% of safe limit
@@ -459,7 +456,7 @@ function CityRanking({
               <span className="tabular w-5 text-xs text-muted-foreground">{i + 1}</span>
               <span className="flex-1 text-sm font-medium">{c.city}</span>
               <span className={`tabular text-sm font-bold ${meta.token}`}>{c.aqi}</span>
-              <span className={`h-2 w-2 rounded-full ${meta.dimToken.replace("-dim", "")}`} />
+              <span className={`h-2 w-2 rounded-full ${meta.barToken}`} />
             </button>
           );
         })}
