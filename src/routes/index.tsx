@@ -13,7 +13,7 @@ import {
   Droplets,
   Gauge,
   Leaf,
-  Mask,
+  HeartPulse,
   Timer,
   TrendingDown,
   TrendingUp,
@@ -44,8 +44,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Dashboard() {
-  const [cityName, setCityName] = useState(cities[0].city);
+  const [cityName, setCityName] = useState<string>(cities[0]?.city ?? "");
   const city = cities.find((c) => c.city === cityName) ?? cities[0];
+  if (!city) return null;
 
   return (
     <div className="min-h-screen bg-background">
