@@ -393,7 +393,7 @@ function AdvisoryCard({ city }: { city: CityAqi }) {
     <section className="station-card p-6">
       <div className="flex items-center gap-2.5">
         <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${meta.dimToken}`}>
-          <Mask className={`h-4.5 w-4.5 ${meta.token}`} />
+          <HeartPulse className={`h-4.5 w-4.5 ${meta.token}`} />
         </div>
         <h2 className="font-semibold tracking-tight">Health advisory</h2>
       </div>
