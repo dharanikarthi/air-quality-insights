@@ -25,13 +25,23 @@ export interface CityAqi {
 
 export const categoryMeta: Record<
   AqiCategory,
-  { label: string; token: string; dimToken: string }
+  { label: string; token: string; dimToken: string; barToken: string }
 > = {
-  good: { label: "Good", token: "text-good", dimToken: "bg-good-dim" },
-  fair: { label: "Fair", token: "text-fair", dimToken: "bg-fair-dim" },
-  moderate: { label: "Moderate", token: "text-moderate", dimToken: "bg-moderate-dim" },
-  poor: { label: "Poor", token: "text-poor", dimToken: "bg-poor-dim" },
-  severe: { label: "Severe", token: "text-severe", dimToken: "bg-severe-dim" },
+  good: { label: "Good", token: "text-good", dimToken: "bg-good-dim", barToken: "bg-good" },
+  fair: { label: "Fair", token: "text-fair", dimToken: "bg-fair-dim", barToken: "bg-fair" },
+  moderate: {
+    label: "Moderate",
+    token: "text-moderate",
+    dimToken: "bg-moderate-dim",
+    barToken: "bg-moderate",
+  },
+  poor: { label: "Poor", token: "text-poor", dimToken: "bg-poor-dim", barToken: "bg-poor" },
+  severe: {
+    label: "Severe",
+    token: "text-severe",
+    dimToken: "bg-severe-dim",
+    barToken: "bg-severe",
+  },
 };
 
 export function aqiToCategory(aqi: number): AqiCategory {
